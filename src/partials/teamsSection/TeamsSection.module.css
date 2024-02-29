@@ -1,0 +1,12 @@
+.team_container {
+  padding-block: 6rem;
+}
+.team_title {
+  font-size: 70px;
+  line-height: 0.875;
+  font-weight: 400;
+  color: hsl(0, 0%, 8%);
+  text-align: center;
+  padding-bottom: 40px;
+  font-family: "Protest Revolution", sans-serif;
+}

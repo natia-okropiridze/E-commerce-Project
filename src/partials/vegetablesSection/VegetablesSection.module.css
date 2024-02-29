@@ -1,0 +1,68 @@
+.vegetable {
+  background-color: hsl(40, 18%, 93%);
+  transition: all 0.5s;
+}
+
+.vegetable_banner_inner {
+  isolation: isolate;
+}
+
+.vegetable_banner_inner::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-image: url(/public/images/vegetables/vegetables_logo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.vegetable_banner_content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vegetable_fruit_title {
+  color: #3c6a36;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1.2;
+  font-weight: 300;
+  letter-spacing: 0.025em;
+  text-align: center;
+  font-family: "Protest Revolution", sans-serif;
+}
+.vegetable_fruit_subtitle {
+  color: #eda407;
+  font-size: 60px;
+  line-height: 0.875;
+  text-align: center;
+  font-family: "Protest Revolution", sans-serif;
+}
+.vegetable_title {
+  color: hsl(0, 0%, 8%);
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.33333;
+  letter-spacing: 0.01em;
+  padding-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.vegetable_title:hover {
+  color: hsl(39, 74%, 56%);
+}
+.vegetable_price {
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.vegetable_fruit_col:hover .vegetable {
+  transform: scale(0.8);
+  background-color: hsla(258, 5%, 58%, 0.3);
+  border: 20px solid hsl(40, 18%, 93%);
+}

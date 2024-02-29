@@ -1,0 +1,28 @@
+.header_container {
+  background-color: hsl(0, 0%, 100%);
+}
+
+.header_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header_item {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #151515;
+  border: none;
+  cursor: pointer;
+  padding: 25px 20px 33px;
+  transition: all 0.3s;
+}
+.header_item:hover {
+  background-color: hsl(40, 18%, 93%);
+  transform: scaleY(1);
+}
+.active {
+  background-color: hsl(40, 18%, 93%);
+}

@@ -1,0 +1,8 @@
+.gallery_title {
+  font-size: 80px;
+  line-height: 0.875;
+  color: hsl(0, 0%, 8%);
+  text-align: center;
+  padding-block: 2rem;
+  font-family: "Protest Revolution", sans-serif;
+}

@@ -1,0 +1,16 @@
+.sidebar_container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 30vw;
+  background-color: hsl(0, 0%, 100%);
+  padding: 20px;
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 500ms;
+}
+
+.sidebar_container_show {
+  transform: translateX(0%);
+}

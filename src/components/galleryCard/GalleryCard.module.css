@@ -1,0 +1,22 @@
+.gallery_inner {
+  position: absolute;
+  color: hsl(32, 41%, 93%);
+  background-color: hsla(0, 0%, 8%, 0.5);
+  border: 2px solid hsl(32, 41%, 93%);
+  font-size: 30px;
+  font-weight: bold;
+  content: "";
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.gallery_inner:hover {
+  transform: scale(0.9);
+  opacity: 1;
+}

@@ -1,0 +1,13 @@
+.header_cart {
+  position: relative;
+  cursor: pointer;
+  font-size: 25px;
+}
+.header_cart::after {
+  position: absolute;
+  content: "2";
+  font-size: 20px;
+  color: red;
+  top: -5px;
+  left: 25px;
+}
