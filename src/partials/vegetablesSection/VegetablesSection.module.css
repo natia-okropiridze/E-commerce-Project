@@ -63,6 +63,6 @@
 
 .vegetable_fruit_col:hover .vegetable {
   transform: scale(0.8);
-  background-color: hsla(258, 5%, 58%, 0.3);
-  border: 20px solid hsl(40, 18%, 93%);
+  /* background-color: hsla(258, 5%, 58%, 0.3); */
+  border: 20px solid hsla(40, 17%, 93%, 0.5);
 }

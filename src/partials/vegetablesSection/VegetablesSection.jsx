@@ -51,9 +51,7 @@ function VegetablesSection(props) {
                   className={[vegetable_fruit_col].join(" ")}
                 >
                   <Card
-                    className={[vegetable_fruit_card, "py-2", "border-0"].join(
-                      " "
-                    )}
+                    className={[vegetable_fruit_card, "border-0"].join(" ")}
                   >
                     <Image src={image} className={[vegetable].join(" ")} />
                     <div className="text-center">

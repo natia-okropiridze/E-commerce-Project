@@ -1,4 +1,5 @@
-import Cart from "../../components/cart/Cart";
+import { useContext } from "react";
+import CartContext from "../../store/CartContext";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,9 +10,23 @@ import Image from "react-bootstrap/Image";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import SidebarButton from "../../components/sidebarButton/SidebarButton";
+import Button from "../../components/UI/Button";
+import UserProgressContext from "../../store/UserProgressContext";
 const { header_container, header_items, header_item, active } = styles;
 function Header(props) {
   const { setToggle } = props;
+
+  const cartProductContext = useContext(CartContext);
+  const userProgressContext = useContext(UserProgressContext);
+  const totalCartItems = cartProductContext.items.reduce(
+    (totalNumberOfItems, item) => {
+      return totalNumberOfItems + item.quantity;
+    },
+    0
+  );
+  function handleShowCart() {
+    userProgressContext.showCart();
+  }
   return (
     <Container fluid className={[header_container].join(" ")}>
       <Container>
@@ -70,7 +85,11 @@ function Header(props) {
           <Col lg={2}>
             <Card className="border-0">
               <div className="d-flex gap-5">
-                <Cart />
+                <nav>
+                  <Button onClick={handleShowCart}>
+                    Cart ({totalCartItems})
+                  </Button>
+                </nav>
                 <SidebarButton setToggle={setToggle} />
               </div>
             </Card>

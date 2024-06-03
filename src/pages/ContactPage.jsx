@@ -25,15 +25,15 @@ function ContactPage() {
     e.preventDefault();
     if (validateForm()) {
       setIsSubscribed(true);
-    }
-    setTimeout(() => {
-      setIsSubscribed(false);
       setUser({
         firstName: "",
         lastName: "",
         email: "",
         message: "",
       });
+    }
+    setTimeout(() => {
+      setIsSubscribed(false);
     }, 2000);
   };
 
@@ -42,25 +42,25 @@ function ContactPage() {
     let formIsValid = true;
 
     if (!user.firstName.trim()) {
-      errors.firstName = "First name is required";
+      errors = { ...errors, firstName: "First name is required" };
       formIsValid = false;
     }
 
     if (!user.lastName.trim()) {
-      errors.lastName = "Last name is required";
+      errors = { ...errors, lastName: "Last name is required" };
       formIsValid = false;
     }
 
     if (!user.email.trim()) {
-      errors.email = "Email is required";
+      errors = { ...errors, email: "Email is required" };
       formIsValid = false;
     } else if (!/\S+@\S+\.\S+/.test(user.email)) {
-      errors.email = "Email is invalid";
+      errors = { ...errors, email: "Email is invalid" };
       formIsValid = false;
     }
 
     if (!user.message.trim()) {
-      errors.message = "Message is required";
+      errors = { ...errors, message: "Message is required" };
       formIsValid = false;
     }
 
@@ -69,12 +69,15 @@ function ContactPage() {
   };
 
   return (
-    <Container fluid className="py-5 bg-secondary">
+    <Container fluid className="py-5 bg-secondary opacity-75">
       <Container>
         <Row>
           <Col sm={5}>
             {isSubscribed ? (
-              <Alert variant="success">Thanks For Sending Message</Alert>
+              <Alert variant="success">
+                Thanks For Sending Message
+                <i className="bi bi-envelope ps-2"></i>
+              </Alert>
             ) : (
               <div>
                 <h3>Contact Form</h3>

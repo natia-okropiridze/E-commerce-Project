@@ -4,7 +4,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import ProductCard from "../../components/productCard/ProductCard";
-
+import styles from "./ShopSection.module.css";
+const { fruit_checkbox, vegetable_checkbox } = styles;
 function ShopSection({ products }) {
   const prePage = 6;
   const [checkboxValues, setCheckboxValues] = useState([]);
@@ -44,31 +45,33 @@ function ShopSection({ products }) {
           <Col md={8}>
             <Row>
               {renderProducts.map((product) => (
-                <Col lg={4} md={6} key={product.id}>
-                  <ProductCard product={product} />
+                <Col lg={4} md={6} className="pb-4" key={product.id}>
+                  <ProductCard product={product}></ProductCard>
                 </Col>
               ))}
             </Row>
           </Col>
           <Col lg={4}>
             <Card className="rounded-0 border-0">
-              <h3>Categories</h3>
+              <h3 className="fs-1">Categories</h3>
               <ul>
                 <li className="d-flex gap-3">
                   <input
+                    className={[fruit_checkbox].join(" ")}
                     type="checkbox"
                     value="fruit"
                     onChange={handleCheckboxChange}
                   />
-                  <span>fruits</span>
+                  <span className="fs-2">Fruits</span>
                 </li>
                 <li className="d-flex gap-3">
                   <input
+                    className={[vegetable_checkbox].join(" ")}
                     type="checkbox"
                     value="vegetable"
                     onChange={handleCheckboxChange}
                   />
-                  <span>vegetables</span>
+                  <span className="fs-2">Vegetables</span>
                 </li>
               </ul>
             </Card>

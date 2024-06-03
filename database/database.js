@@ -145,6 +145,7 @@ const database = {
       image: "blueberry.png",
       title: "Blueberry",
       category: "fruit",
+      quantity: 5,
       price: 25.0,
     },
     {
@@ -152,6 +153,7 @@ const database = {
       image: "kiwi.png",
       title: "Kiwis",
       category: "fruit",
+      quantity: 10,
       price: 30.0,
     },
     {
@@ -159,6 +161,7 @@ const database = {
       image: "apple.png",
       title: "Apples",
       category: "fruit",
+      quantity: 1,
       price: 40.0,
     },
     {
@@ -166,6 +169,7 @@ const database = {
       image: "peaches.png",
       title: "Peaches",
       category: "fruit",
+      quantity: 8,
       price: 60.0,
     },
     {
@@ -173,6 +177,7 @@ const database = {
       image: "broccoli.png",
       title: "Broccoli",
       category: "vegetable",
+      quantity: 1,
       price: 25.0,
     },
     {
@@ -180,6 +185,7 @@ const database = {
       image: "artichokes.png",
       title: "Artichokes",
       category: "vegetable",
+      quantity: 5,
       price: 23.0,
     },
     {
@@ -187,6 +193,7 @@ const database = {
       image: "corn.png",
       title: "Corn",
       category: "vegetable",
+      quantity: 10,
       price: 27.0,
     },
     {
@@ -194,6 +201,7 @@ const database = {
       image: "avocado.png",
       title: "Avocados",
       category: "vegetable",
+      quantity: 9,
       price: 50.0,
     },
   ],

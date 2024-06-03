@@ -8,8 +8,11 @@ function Sidebar(props) {
   return (
     <div className={classes.join(" ")}>
       <div className="d-flex justify-content-between pt-3">
-        <h3 className="fs-2">Get in Touch</h3>
-        <button onClick={() => setToggle(false)} className="text-bg-danger p-2">
+        <h3 className="fs-2 text-secondary text-bold">Get in Touch</h3>
+        <button
+          onClick={() => setToggle(false)}
+          className="text-bg-success p-2"
+        >
           <i className="bi bi-x-square"></i>
         </button>
       </div>
