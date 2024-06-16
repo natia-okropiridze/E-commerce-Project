@@ -52,5 +52,5 @@
 .slider_button:hover {
   color: hsl(36, 10%, 90%);
   background-color: hsl(39, 59%, 45%);
-  border: none;
+  border: 3px solid hsl(39, 59%, 45%);
 }
