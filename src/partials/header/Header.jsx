@@ -87,7 +87,7 @@ function Header(props) {
               <div className="d-flex gap-5">
                 <nav>
                   <Button onClick={handleShowCart}>
-                    Cart ({totalCartItems})
+                    <i className="bi bi-bag"></i>({totalCartItems})
                   </Button>
                 </nav>
                 <SidebarButton setToggle={setToggle} />

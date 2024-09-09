@@ -8,19 +8,19 @@ function Sidebar(props) {
   return (
     <div className={classes.join(" ")}>
       <div className="d-flex justify-content-between pt-3">
-        <h3 className="fs-2 text-secondary text-bold">Get in Touch</h3>
+        <h3 className="fs-2 text-warning text-bold">Get in Touch</h3>
         <button
           onClick={() => setToggle(false)}
-          className="text-bg-success p-2"
+          className="text-bg-warning p-2"
         >
-          <i className="bi bi-x-square"></i>
+          <i className="bi bi-x-square text-secondary"></i>
         </button>
       </div>
       <p className="text-secondary fs-6 pt-3">
         We are always ready to provide you with fresh organic products for your
         home or office. Contact us to find out how we can help you.
       </p>
-      <h4 className="pt-3 pb-2 text-success">Facebook</h4>
+      <h4 className="pt-3 pb-2 text-secondary text-warning">Facebook</h4>
       <img src={sidebarPicture} />
       <div className="d-flex gap-3 pt-3">
         <span>
@@ -43,21 +43,38 @@ function Sidebar(props) {
         <span className="text-secondary">mail@demolink.org</span>
       </div>
       <div className="d-flex gap-4 pt-5">
-        <span className="text-secondary">
-          <i className="bi bi-facebook"></i>
-        </span>
-        <span className="text-secondary">
-          <i className="bi bi-twitter"></i>
-        </span>
-        <span className="text-secondary">
-          <i className="bi bi-google"></i>
-        </span>
-        <span className="text-secondary">
-          <i className="bi bi-instagram"></i>
-        </span>
-        <span className="text-secondary">
-          <i className="bi bi-pinterest"></i>
-        </span>
+        <a
+          className="text-decoration-none"
+          href="https://www.facebook.com/"
+          target="_blank"
+        >
+          <i className="bi bi-facebook p-2 text-warning"></i>
+          <span className="link-label text-secondary">Facebook</span>
+        </a>
+        <a
+          className="text-decoration-none"
+          href="https://instagram.com"
+          target="_blank"
+        >
+          <i className="bi bi-instagram p-2 text-warning"></i>
+          <span className="link-label text-secondary">Instagram</span>
+        </a>
+        <a
+          className="text-decoration-none"
+          href="https://pinterest.com"
+          target="_blank"
+        >
+          <i className="bi bi-pinterest p-2 text-warning"></i>
+          <span className="link-label text-secondary">Pinterest</span>
+        </a>
+        <a
+          className="text-decoration-none"
+          href="https://twitter.com"
+          target="_blank"
+        >
+          <i className="bi bi-twitter p-2 text-warning"></i>
+          <span className="link-label text-secondary">Twitter</span>
+        </a>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import Spinner from "react-bootstrap/Spinner";
 
 function ContactPage() {
   const [user, setUser] = useState({
@@ -13,6 +14,7 @@ function ContactPage() {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -24,17 +26,22 @@ function ContactPage() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      setIsSubscribed(true);
-      setUser({
-        firstName: "",
-        lastName: "",
-        email: "",
-        message: "",
-      });
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubscribed(true);
+        setIsSubmitting(false);
+        setUser({
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+        });
+      }, 2000);
+
+      setTimeout(() => {
+        setIsSubscribed(false);
+      }, 4000);
     }
-    setTimeout(() => {
-      setIsSubscribed(false);
-    }, 2000);
   };
 
   const validateForm = () => {
@@ -75,7 +82,7 @@ function ContactPage() {
           <Col sm={5}>
             {isSubscribed ? (
               <Alert variant="success">
-                Thanks For Sending Message
+                Thanks for sending your message!
                 <i className="bi bi-envelope ps-2"></i>
               </Alert>
             ) : (
@@ -89,9 +96,18 @@ function ContactPage() {
                       name="firstName"
                       value={user.firstName}
                       onChange={changeHandler}
+                      aria-describedby="firstNameHelp"
                     />
-                    {errors.firstName && (
-                      <span className="text-danger">{errors.firstName}</span>
+                    {errors.firstName ? (
+                      <Form.Text id="firstNameHelp" className="text-danger">
+                        {errors.firstName}
+                      </Form.Text>
+                    ) : (
+                      user.firstName && (
+                        <Form.Text id="firstNameHelp" className="text-warning">
+                          First Name is Done ✅
+                        </Form.Text>
+                      )
                     )}
                   </Form.Group>
                   <Form.Group className="mb-3">
@@ -101,9 +117,18 @@ function ContactPage() {
                       name="lastName"
                       value={user.lastName}
                       onChange={changeHandler}
+                      aria-describedby="lastNameHelp"
                     />
-                    {errors.lastName && (
-                      <span className="text-danger">{errors.lastName}</span>
+                    {errors.lastName ? (
+                      <Form.Text id="lastNameHelp" className="text-danger">
+                        {errors.firstName}
+                      </Form.Text>
+                    ) : (
+                      user.lastName && (
+                        <Form.Text id="lastNameHelp" className="text-warning">
+                          Last Name is Done ✅
+                        </Form.Text>
+                      )
                     )}
                   </Form.Group>
                   <Form.Group className="mb-3">
@@ -113,9 +138,18 @@ function ContactPage() {
                       name="email"
                       value={user.email}
                       onChange={changeHandler}
+                      aria-describedby="emailHelp"
                     />
-                    {errors.email && (
-                      <span className="text-danger">{errors.email}</span>
+                    {errors.email ? (
+                      <Form.Text id="emailHelp" className="text-danger">
+                        {errors.email}
+                      </Form.Text>
+                    ) : (
+                      user.email && (
+                        <Form.Text id="emailHelp" className="text-warning">
+                          Email is Done ✅
+                        </Form.Text>
+                      )
                     )}
                   </Form.Group>
                   <Form.Group className="mb-3">
@@ -126,17 +160,35 @@ function ContactPage() {
                       name="message"
                       value={user.message}
                       onChange={changeHandler}
+                      aria-describedby="messageHelp"
                     />
+
                     {errors.message && (
-                      <span className="text-danger">{errors.message}</span>
+                      <Form.Text id="messageHelp" className="text-danger">
+                        {errors.message}
+                      </Form.Text>
                     )}
                   </Form.Group>
                   <Button
                     type="submit"
                     variant="primary"
                     className="bg-success border-0 px-4 py-2"
+                    disabled={isSubmitting}
                   >
-                    SEND MESSAGE
+                    {isSubmitting ? (
+                      <>
+                        <Spinner
+                          as="span"
+                          animation="border"
+                          size="sm"
+                          role="status"
+                          aria-hidden="true"
+                        />{" "}
+                        Sending...
+                      </>
+                    ) : (
+                      "SEND MESSAGE"
+                    )}
                   </Button>
                 </Form>
               </div>

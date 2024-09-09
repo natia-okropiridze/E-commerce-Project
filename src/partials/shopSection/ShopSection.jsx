@@ -3,18 +3,14 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import ProductCard from "../../components/productCard/ProductCard";
 import styles from "./ShopSection.module.css";
-const { fruit_checkbox, vegetable_checkbox } = styles;
+const { vegetable_checkbox, fruit_checkbox } = styles;
 function ShopSection({ products }) {
   const prePage = 6;
   const [checkboxValues, setCheckboxValues] = useState([]);
-  const [displayProducts, setDisplayProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    setDisplayProducts(products);
-  }, [products]);
 
   const filteredProducts = checkboxValues.length
     ? products.filter((product) => checkboxValues.includes(product.category))
@@ -27,15 +23,22 @@ function ShopSection({ products }) {
     currentPage * prePage
   );
 
+  useEffect(() => {
+    // Reset to first page when filters change
+    setCurrentPage(1);
+  }, [checkboxValues, products]);
+
   function handleCheckboxChange(event) {
     const { value, checked } = event.target;
-    if (checked) {
-      setCheckboxValues((prevValues) => [...prevValues, value]);
-    } else {
-      setCheckboxValues((prevValues) =>
-        prevValues.filter((item) => item !== value)
-      );
-    }
+    setCheckboxValues((prevValues) =>
+      checked
+        ? [...prevValues, value]
+        : prevValues.filter((item) => item !== value)
+    );
+  }
+
+  function goToPage(pageNumber) {
+    setCurrentPage(pageNumber);
   }
 
   return (
@@ -46,9 +49,23 @@ function ShopSection({ products }) {
             <Row>
               {renderProducts.map((product) => (
                 <Col lg={4} md={6} className="pb-4" key={product.id}>
-                  <ProductCard product={product}></ProductCard>
+                  <ProductCard product={product} />
                 </Col>
               ))}
+            </Row>
+            <Row>
+              <Col className="d-flex justify-content-center py-3">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <Button
+                    key={index}
+                    onClick={() => goToPage(index + 1)}
+                    disabled={currentPage === index + 1}
+                    className="mx-1"
+                  >
+                    {index + 1}
+                  </Button>
+                ))}
+              </Col>
             </Row>
           </Col>
           <Col lg={4}>

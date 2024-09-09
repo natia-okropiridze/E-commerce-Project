@@ -146,7 +146,8 @@ const database = {
       title: "Blueberry",
       category: "fruit",
       quantity: 5,
-      price: 25.0,
+      price: 25,
+      discount: null,
     },
     {
       id: crypto.randomUUID().toString(),
@@ -154,7 +155,8 @@ const database = {
       title: "Kiwis",
       category: "fruit",
       quantity: 10,
-      price: 30.0,
+      discount: 50,
+      price: 30,
     },
     {
       id: crypto.randomUUID().toString(),
@@ -162,7 +164,8 @@ const database = {
       title: "Apples",
       category: "fruit",
       quantity: 1,
-      price: 40.0,
+      price: 40,
+      discount: null,
     },
     {
       id: crypto.randomUUID().toString(),
@@ -170,7 +173,8 @@ const database = {
       title: "Peaches",
       category: "fruit",
       quantity: 8,
-      price: 60.0,
+      discount: 60,
+      price: 60,
     },
     {
       id: crypto.randomUUID().toString(),
@@ -178,6 +182,7 @@ const database = {
       title: "Broccoli",
       category: "vegetable",
       quantity: 1,
+      discount: 20,
       price: 25.0,
     },
     {
@@ -186,7 +191,8 @@ const database = {
       title: "Artichokes",
       category: "vegetable",
       quantity: 5,
-      price: 23.0,
+      price: 23,
+      discount: null,
     },
     {
       id: crypto.randomUUID().toString(),
@@ -194,7 +200,8 @@ const database = {
       title: "Corn",
       category: "vegetable",
       quantity: 10,
-      price: 27.0,
+      discount: 40,
+      price: 30,
     },
     {
       id: crypto.randomUUID().toString(),
@@ -202,7 +209,8 @@ const database = {
       title: "Avocados",
       category: "vegetable",
       quantity: 9,
-      price: 50.0,
+      price: 50,
+      discount: null,
     },
   ],
 };

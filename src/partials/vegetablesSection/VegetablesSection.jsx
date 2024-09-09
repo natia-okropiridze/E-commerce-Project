@@ -57,7 +57,7 @@ function VegetablesSection(props) {
                     <div className="text-center">
                       <h3 className={[vegetable_title].join(" ")}>{title}</h3>
                       <Row>
-                        <Col>
+                        <Col className="pb-2">
                           <span
                             className={
                               discount
